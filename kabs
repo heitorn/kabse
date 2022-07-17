@@ -1,0 +1,101 @@
+print("hi")
+getgenv().Toggled=false
+
+getgenv().KeyBind= getgenv().tus
+
+getgenv().Delay=0.01
+
+local pasw = "Selamun Aleykum"
+local pass = ""
+if getgenv().pass == pasw then
+
+local UIS=game:GetService'UserInputService'
+
+
+for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
+
+if getgenv().pass == pasw then
+
+if v:IsA("RemoteEvent") then
+
+v.Name = "asd" 
+
+end
+
+end
+
+end
+
+if getgenv().pass == pasw then
+
+local mt = getrawmetatable(game);
+
+local hook;
+
+
+
+hook = hookfunction(mt.__namecall, newcclosure(function(self, ...)
+
+local arguments = {...};
+
+local method = getnamecallmethod();
+
+if self.Name == "asd" and method == "FireServer" then
+
+if type(arguments[1]) == "string" then
+
+    pass = string.gsub(arguments[1],"KCmdBar","")
+
+end
+end;
+
+return hook(self, unpack(arguments));
+end));
+
+end
+
+while pass=="" do
+
+if getgenv().pass == pasw then
+
+wait(1)
+
+end
+
+end
+
+local A_1 = pass.."KHat"
+
+local Event = game:GetService("ReplicatedStorage").asd
+
+
+UIS.InputBegan:Connect(function(Key)
+
+if getgenv().pass == pasw then
+
+   if Key.KeyCode==Enum.KeyCode[getgenv().KeyBind:upper()] and not UIS:GetFocusedTextBox() then
+
+       if getgenv().Toggled then
+
+           getgenv().Toggled=false
+
+           Event:FireServer(A_1)
+
+       elseif not getgenv().Toggled then
+
+           getgenv().Toggled=true
+           
+               wait(0.1)
+
+            Event:FireServer(A_1)
+
+         
+       end
+
+   end
+
+end
+
+end)
+
+end
